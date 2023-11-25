@@ -13,7 +13,7 @@ const otpSchema = new mon.Schema({
   description: {
     type: Date,
     default: Date.now(),
-    expires: 5 * 60,
+    expires: 5 * 60 * 1000,
   },
 });
 
