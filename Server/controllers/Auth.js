@@ -48,6 +48,7 @@ exports.sendOTP = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "OTP sent Succesfully",
+      otp,
     });
   } catch (e) {
     console.error(e);
@@ -207,9 +208,6 @@ exports.login = async (req, res) => {
 
 //changePassword: Homework
 exports.changePassword = async (req, res) => {
-    try{
-
-    }catch(e){
-
-    }
-}
+  try {
+  } catch (e) {}
+};

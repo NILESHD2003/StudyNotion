@@ -1,11 +1,11 @@
 const Course = require("../models/Course");
-const Tag = require("../models/Tag");
+const Category = require("../models/Category");
 const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imgUploader");
 
 exports.createCourse = async (req, res) => {
   try {
-    const { courseName, courseDescription, whatWillYouLearn, price, tag } =
+    const { courseName, courseDescription, whatWillYouLearn, price, category } =
       req.body;
     const thumbnail = req.files.thumbnailImage;
 
@@ -17,7 +17,7 @@ exports.createCourse = async (req, res) => {
       !courseDescription ||
       !whatWillYouLearn ||
       !price ||
-      !tag ||
+      !category ||
       !thumbnail
     ) {
       return res.status(400).json({
@@ -36,11 +36,11 @@ exports.createCourse = async (req, res) => {
       });
     }
 
-    const tagDetails = await Tag.findById(tag);
-    if (!tagDetails) {
+    const categoryDetails = await Category.findById(category);
+    if (!categoryDetails) {
       return res.status(404).json({
         success: false,
-        message: "Invalid Tag Details",
+        message: "Invalid Category Details",
       });
     }
 
@@ -57,7 +57,7 @@ exports.createCourse = async (req, res) => {
       instructor: instructorDetails._id,
       whatYouWillLearn: whatWillYouLearn,
       price,
-      tag: tagDetails._id,
+      category: categoryDetails._id,
       thumbnail: thumbnailImage.secure_url,
     });
 
@@ -67,8 +67,8 @@ exports.createCourse = async (req, res) => {
       { new: true }
     );
 
-    await Tag.findByIdAndUpdate(
-      { _id: tagDetails._id },
+    await Category.findByIdAndUpdate(
+      { _id: categoryDetails._id },
       { $push: { course: newCourse._id } },
       { new: true }
     );

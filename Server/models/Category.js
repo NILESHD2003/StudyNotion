@@ -1,6 +1,6 @@
 const mon = require("mongoose");
 
-const tagSchema = new mon.Schema({
+const categorySchema = new mon.Schema({
   name: {
     type: String,
     required: true,
@@ -14,4 +14,4 @@ const tagSchema = new mon.Schema({
   }],
 });
 
-module.exports = mon.model("Tag", tagSchema);
+module.exports = mon.model("Category", categorySchema);

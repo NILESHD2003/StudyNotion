@@ -35,9 +35,13 @@ const subSectionSchema = new mon.Schema({
   thumbnail: {
     type: String,
   },
-  tag: {
+  category: {
     type: mon.Schema.Types.ObjectId,
-    ref: "Tag",
+    ref: "Category",
+    required: true,
+  },
+  tags: {
+    type: String,
   },
   studentEnrolled: [
     {

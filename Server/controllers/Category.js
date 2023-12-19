@@ -1,6 +1,6 @@
-const Tag = require("../models/Tag");
+const Category = require("../models/Category");
 
-exports.createTag = async (req, res) => {
+exports.createCategory = async (req, res) => {
   try {
     const { name, description } = req.body;
     //data validation
@@ -10,10 +10,15 @@ exports.createTag = async (req, res) => {
         message: "Name is mandatory",
       });
     }
-    const tagDetails = await Tag.create({
+    const categoryDetails = await Category.create({
       name: name,
       description: description,
     });
+
+    return res.status(200).json({
+      success: true,
+      message: "Category Created"
+    })
   } catch (e) {
     return res.status(500).json({
       success: false,
@@ -22,12 +27,12 @@ exports.createTag = async (req, res) => {
   }
 };
 
-exports.showAllTags = async (req, res) => {
+exports.showAllCategory = async (req, res) => {
   try {
     const allTags = await Tag.find({}, { name: true, description: true });
     res.status(200).json({
       success: true,
-      message: "All available Tags",
+      message: "All available Category",
       allTags,
     });
   } catch (e) {
