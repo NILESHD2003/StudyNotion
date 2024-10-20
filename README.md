@@ -13,7 +13,6 @@
 5. [Database](#database)
 6. [API Design](#api-design)
 7. [Installation](#installation)
-8. [Future Enhancements](#future-enhancements)
 
 ## Project Description
 
