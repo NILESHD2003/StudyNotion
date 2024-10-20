@@ -82,11 +82,6 @@ The front end of the platform is built using ReactJS, enabling the creation of d
   - Course Management: Create, update, and delete courses.
   - Profile Management: View and edit account details.
 
-- **For Admin** (Future Scope):
-  - Dashboard: Overview of platform's courses, instructors, and students.
-  - Insights: Platform metrics, including registered users and revenue.
-  - Instructor Management: Manage instructors and their courses.
-
 ### Frameworks & Libraries:
 
 - **ReactJS**: JavaScript library for building user interfaces.
